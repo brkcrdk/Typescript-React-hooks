@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
-import { UserTypes } from "./interfaces/UserInterface";
 
-const User: React.FC<{}> = () => {
+import axios from "axios";
+//Fetch data types for api request
+import { UserTypes } from "./interfaces/UserInterface";
+interface Props {}
+
+const User: React.FC<Props> = () => {
+  //Set state with types of defined types
   const [user, setUser] = useState<UserTypes[]>([]);
   const fetchUser = () => {
     axios
@@ -13,11 +17,12 @@ const User: React.FC<{}> = () => {
   useEffect(() => {
     fetchUser();
   }, []);
-  console.log(user);
+
   return (
     <div>
       <ul>
-        {user && user.map((user, key) => <li key={key}>{user.gender}</li>)}
+        {user &&
+          user.map((user, key) => <li key={key}>{user.location.state}</li>)}
       </ul>
     </div>
   );
