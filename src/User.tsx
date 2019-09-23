@@ -3,32 +3,52 @@ import "./userStyle.scss";
 import axios from "axios";
 //Fetch data types for api request
 import { UserTypes } from "./interfaces/UserInterface";
-interface Props { }
+interface Props {
 
-const User: React.FC<Props> = () => {
+  first: string,
+  last: string
+
+
+  street: string,
+  state: string
+
+  email: string
+  cell: string
+  username: string
+}
+
+const User: React.FC<Props> = ({ first }: Props) => {
+
+
   //Set state with types of defined types
-  const [user, setUser] = useState<UserTypes[]>([]);
-  const [text, setText] = useState<string>("Hi,")
-  const fetchUser = () => {
-    axios
-      .get("https://randomuser.me/api")
-      .then(res => setUser(res.data.results))
-      .catch(err => console.log(err));
-  };
-  useEffect(() => {
-    fetchUser();
-  }, []);
 
-  const handleHover = (name: string, type: string) => (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
-    setText(`My ${type} is ${name}`)
-  }
-  console.log(user)
+  // const [user, setUser] = useState<UserTypes[]>([]);
+  // const [text, setText] = useState<string>("Hi!")
+  // const fetchUser = () => {
+  //   axios
+  //     .get("https://randomuser.me/api")
+  //     .then(res => setUser(res.data.results))
+  //     .catch(err => console.log(err));
+  // };
+  // useEffect(() => {
+  //   fetchUser();
+  // }, []);
+
+  // const handleHover = (name: string, type: string) => (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
+  //   setText(`My ${type} is ${name}`)
+  // }
+
+  console.log(name)
+
   return (
     <div id="wrapper">
-      {user && user.map((user, key) => (
+
+      {/* {user && user.map((user, key) => (
         <div key={key}>
           <div><img src={user.picture.large} /></div>
-          <div><h3>{text}</h3></div>
+          <div>
+            <h3>{text}</h3>
+          </div>
           <div>
             <span onMouseMove={handleHover(`${user.name.first} ${user.name.last}`, `name`)}>
               <i className="far fa-id-card" />
@@ -46,17 +66,7 @@ const User: React.FC<Props> = () => {
               <i className="far fa-id-badge" />
             </span>
           </div>
-        </div>))}
-
-      {/* <div><img src="https://picsum.photos/150" /></div>
-      <div><h1>{text}</h1></div>
-      <div>
-        <span onMouseMove={handleHover("burak")}><i className="far fa-address-card"></i></span>
-        <span onMouseMove={handleHover("burak1")}><i className="far fa-address-card"></i></span>
-        <span><i className="far fa-address-card"></i></span>
-        <span><i className="far fa-address-card"></i></span>
-        <span><i className="far fa-address-card"></i></span>
-      </div> */}
+        </div>))} */}
     </div >
   );
 };
