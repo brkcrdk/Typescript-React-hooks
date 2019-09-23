@@ -1,0 +1,28 @@
+$colors:(primary:#f5f2f4, text-color:#1c171c);
+
+@function getColor($color-name) {
+  @return map-get($colors, $color-name)
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: getColor(primary);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: getColor(text-color)
+}
+
+.App-link {
+  color: #09d3ac;
+}

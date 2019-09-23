@@ -12,4 +12,7 @@ export interface UserTypes {
   };
   email: string;
   age: number;
+  picture: {
+    large: string;
+  };
 }
