@@ -1,3 +1,5 @@
+import { string } from "prop-types";
+
 export interface UserTypes {
   gender: string;
   name: {
@@ -8,10 +10,12 @@ export interface UserTypes {
     street: string;
     city: string;
     state: string;
-    postcode: number;
+  };
+  login: {
+    username: string;
   };
   email: string;
-  age: number;
+  cell: string;
   picture: {
     large: string;
   };
