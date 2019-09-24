@@ -33,6 +33,7 @@ const App: React.FC = () => {
                 street={user.location.street}
                 state={user.location.state}
                 picture={user.picture.large}
+                fetch={fetchUser}
               />
             ))
           : "Loading"}

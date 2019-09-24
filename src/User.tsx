@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./userStyle.scss";
 //Fetch data types for api request
 interface Props {
+  fetch: () => void;
   first: string;
   last: string;
   street: string;
@@ -19,12 +20,12 @@ const User: React.FC<Props> = ({
   email,
   cell,
   username,
-  picture
+  picture,
+  fetch
 }: Props) => {
   //Set state with types of defined types
 
   const [text, setText] = useState<string>("Hi!");
-
   const handleHover = (name: string, type: string) => (
     e: React.MouseEvent<HTMLSpanElement, MouseEvent>
   ) => {
@@ -34,9 +35,19 @@ const User: React.FC<Props> = ({
   return (
     <div id="wrapper">
       <div id="h3-img">
+        <div>
+          <button
+            id="new"
+            onClick={() => {
+              fetch();
+              setText("Hi!");
+            }}>
+            New
+          </button>
+        </div>
         <img src={picture} />
         <div>
-          <h3 id="tag" className="tag toggle">
+          <h3 id="tag" className={`toggle tag`}>
             {text}
           </h3>
         </div>

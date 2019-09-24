@@ -1,66 +1,29 @@
 @import "./App.scss";
 @import "./animations.scss";
 
-@include keyframes(animHeader) {
-    0% {
-        opacity: 0;
-        transform: translateX(-50%);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@include keyframes(animImg) {
-    from {
-        transform: translateX(-40%);
-        opacity: 0;
-    }
-
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
 #wrapper {
     height: 70vh;
     width: 95%;
     box-shadow: 1px 1px 5px rgba(grey, 1);
     border-radius: 0.5em;
-
 }
 
 #h3-img {
     margin: 1em;
     height: 60%;
 
-
-
     h3 {
         padding: 0;
         margin: 2em 0;
         font-family: 'Open Sans', sans-serif;
         font-size: 1em;
-        @include animation('animHeader 3s 3');
+        @include animation('animHeader 3s');
 
         &.toggle {
-            animation: textAni 2s;
+            @include animation('animText 2s ');
         }
 
-        @keyframes textAni {
-            from {
-                transform: translateX(-50%);
-                opacity: 0;
-            }
 
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
     }
 
     img {
@@ -68,8 +31,6 @@
         border-radius: 50%;
         z-index: 1;
         @include animation('animImg 2s ');
-
-
     }
 
 }
@@ -90,17 +51,8 @@
         }
 
 
+
     }
 
-    @keyframes iconAni {
-        from {
-            opacity: 0;
-            transform: translateX(-100%)
-        }
 
-        to {
-            opacity: 1;
-            transform: translateX(0)
-        }
-    }
 }
