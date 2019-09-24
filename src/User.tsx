@@ -13,6 +13,7 @@ interface Props {
   username: string;
   picture: string;
 }
+
 const User: React.FC<Props> = ({
   first,
   last,
@@ -25,19 +26,23 @@ const User: React.FC<Props> = ({
   fetch
 }: Props) => {
   //Set state with types of defined types
-
+  //TODO: Dont render the props immediately
+  //TODO: first put on another state and then render it
   const [text, setText] = useState<string>(`My name is${first} ${last}`);
+
   const handleHover = (name: string, type: string) => (
     e: React.MouseEvent<HTMLSpanElement, MouseEvent>
   ) => {
     setText(`My ${type} is ${name}`);
   };
-
+  const handleClick = () => {
+    fetch();
+  };
   return (
     <div id="wrapper">
       <div id="h3-img">
         <div id="image">
-          <img src={picture} onClick={fetch} />
+          <img src={picture} onClick={handleClick} />
         </div>
         <div>
           <h3 id="tag" className={`toggle tag`}>
