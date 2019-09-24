@@ -12,6 +12,7 @@
     margin: 1em;
     height: 60%;
 
+
     h3 {
         padding: 0;
         margin: 2em 0;
@@ -22,17 +23,32 @@
         &.toggle {
             @include animation('animText 2s ');
         }
-
-
     }
 
-    img {
-        margin-top: 1em;
-        border-radius: 50%;
-        z-index: 1;
-        @include animation('animImg 2s ');
-    }
+    #image {
+        display: grid;
+        justify-content: center;
+        align-items: center;
 
+
+
+        img {
+            margin-top: 1em;
+            border-radius: 50%;
+            margin-left: 1em;
+            @include animation('animImg 2s ');
+            transition: transform 0.5s ease-in-out;
+            cursor: pointer;
+
+            &:hover {
+                transform: scale(1.1, 1.1);
+            }
+
+            &:hover+span {
+                @include animation("animSpanIn 2s");
+            }
+        }
+    }
 }
 
 #icons {
@@ -45,14 +61,11 @@
         color: darken(getColor(primary), 90%);
         transition: color .2s ease-in-out;
         animation: iconAni 1s;
+        margin-top: .7em;
 
         &:hover {
             color: lighten(getColor(text-color), 50%);
         }
 
-
-
     }
-
-
 }

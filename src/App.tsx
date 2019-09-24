@@ -37,6 +37,7 @@ const App: React.FC = () => {
               />
             ))
           : "Loading"}
+        <h4>Click picture to fetch New person!</h4>
       </header>
     </div>
   );

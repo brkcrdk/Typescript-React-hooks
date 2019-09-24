@@ -134,6 +134,32 @@
   }
 }
 
+@-webkit-keyframes animSpan {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(10%);
+            transform: translateY(10%);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@keyframes animSpan {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(10%);
+            transform: translateY(10%);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
 #wrapper {
   height: 70vh;
   width: 95%;
@@ -161,12 +187,38 @@
   animation: animText 2s ;
 }
 
-#h3-img img {
+#h3-img #image {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#h3-img #image img {
   margin-top: 1em;
   border-radius: 50%;
-  z-index: 1;
+  margin-left: 1em;
   -webkit-animation: animImg 2s ;
   animation: animImg 2s ;
+  -webkit-transition: -webkit-transform 0.5s ease-in-out;
+  transition: -webkit-transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out, -webkit-transform 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+#h3-img #image img:hover {
+  -webkit-transform: scale(1.1, 1.1);
+          transform: scale(1.1, 1.1);
+}
+
+#h3-img #image img:hover + span {
+  -webkit-animation: animSpanIn 2s;
+  animation: animSpanIn 2s;
 }
 
 #icons span {
@@ -180,6 +232,7 @@
   transition: color .2s ease-in-out;
   -webkit-animation: iconAni 1s;
           animation: iconAni 1s;
+  margin-top: .7em;
 }
 
 #icons i:hover {
