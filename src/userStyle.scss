@@ -1,16 +1,27 @@
 @import "./App.scss";
+@import "./animations.scss";
 
-@mixin animate {
-    @keyframes animate {
-        from {
-            opacity: 0;
-            transform: translateX(-50%);
-        }
+@include keyframes(animHeader) {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%);
+    }
 
-        to {
-            opacity: 1;
-            transform: translateX(0)
-        }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@include keyframes(animImg) {
+    from {
+        transform: translateX(-40%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
     }
 }
 
@@ -19,28 +30,21 @@
     width: 95%;
     box-shadow: 1px 1px 5px rgba(grey, 1);
     border-radius: 0.5em;
+
 }
 
 #h3-img {
     margin: 1em;
     height: 60%;
-    animation: fadeIn 1s;
 
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-        }
 
-        to {
-            opacity: 1;
-        }
-    }
 
     h3 {
         padding: 0;
         margin: 2em 0;
         font-family: 'Open Sans', sans-serif;
         font-size: 1em;
+        @include animation('animHeader 3s 3');
 
         &.toggle {
             animation: textAni 2s;
@@ -63,6 +67,9 @@
         margin-top: 1em;
         border-radius: 50%;
         z-index: 1;
+        @include animation('animImg 2s ');
+
+
     }
 
 }
@@ -81,6 +88,8 @@
         &:hover {
             color: lighten(getColor(text-color), 50%);
         }
+
+
     }
 
     @keyframes iconAni {
