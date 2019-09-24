@@ -11,7 +11,6 @@ interface Props {
   username: string;
   picture: string;
 }
-
 const User: React.FC<Props> = ({
   first,
   last,
