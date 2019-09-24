@@ -1,1 +1,119 @@
-/* No CSS *//*# sourceMappingURL=userStyle.css.map */
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: #fff2fb;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: #4a151a;
+}
+
+.App-link {
+  color: #09d3ac;
+}
+
+#wrapper {
+  height: 70vh;
+  width: 95%;
+  -webkit-box-shadow: 0 0 3px #020202;
+          box-shadow: 0 0 3px #020202;
+}
+
+#h3-img {
+  margin: 1em;
+  height: 60%;
+  -webkit-animation: fadeIn 1s;
+          animation: fadeIn 1s;
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+#h3-img h3 {
+  padding: 0;
+  margin: 2em 0;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1em;
+}
+
+#h3-img h3.toggle {
+  -webkit-animation: textAni 2s;
+          animation: textAni 2s;
+}
+
+@-webkit-keyframes textAni {
+  from {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
+  to {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@keyframes textAni {
+  from {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
+  to {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+#h3-img img {
+  margin-top: 1em;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+#icons span {
+  margin: .9em;
+}
+
+#icons i {
+  font-size: 1.5em;
+  color: #26001a;
+  -webkit-transition: color .2s ease-in-out;
+  transition: color .2s ease-in-out;
+}
+
+#icons i:hover {
+  color: #dc828b;
+}
+/*# sourceMappingURL=userStyle.css.map */

@@ -1,73 +1,65 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./userStyle.scss";
-import axios from "axios";
 //Fetch data types for api request
-import { UserTypes } from "./interfaces/UserInterface";
 interface Props {
-
-  first: string,
-  last: string
-
-
-  street: string,
-  state: string
-
-  email: string
-  cell: string
-  username: string
+  first: string;
+  last: string;
+  street: string;
+  state: string;
+  email: string;
+  cell: string;
+  username: string;
+  picture: string;
 }
 
-const User: React.FC<Props> = ({ first }: Props) => {
-
-
+const User: React.FC<Props> = ({
+  first,
+  last,
+  street,
+  state,
+  email,
+  cell,
+  username,
+  picture
+}: Props) => {
   //Set state with types of defined types
 
-  // const [user, setUser] = useState<UserTypes[]>([]);
-  // const [text, setText] = useState<string>("Hi!")
-  // const fetchUser = () => {
-  //   axios
-  //     .get("https://randomuser.me/api")
-  //     .then(res => setUser(res.data.results))
-  //     .catch(err => console.log(err));
-  // };
-  // useEffect(() => {
-  //   fetchUser();
-  // }, []);
+  const [text, setText] = useState<string>("Hi!");
 
-  // const handleHover = (name: string, type: string) => (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
-  //   setText(`My ${type} is ${name}`)
-  // }
-
-  console.log(name)
+  const handleHover = (name: string, type: string) => (
+    e: React.MouseEvent<HTMLSpanElement, MouseEvent>
+  ) => {
+    setText(`My ${type} is ${name}`);
+  };
 
   return (
     <div id="wrapper">
-
-      {/* {user && user.map((user, key) => (
-        <div key={key}>
-          <div><img src={user.picture.large} /></div>
-          <div>
-            <h3>{text}</h3>
-          </div>
-          <div>
-            <span onMouseMove={handleHover(`${user.name.first} ${user.name.last}`, `name`)}>
-              <i className="far fa-id-card" />
-            </span>
-            <span onMouseMove={handleHover(`${user.location.street} ${user.location.state}`, `address`)}>
-              <i className="fas fa-map-marker-alt" />
-            </span>
-            <span onMouseMove={handleHover(`${user.email}`, `email`)}>
-              <i className="far fa-address-card"></i>
-            </span>
-            <span onMouseMove={handleHover(`${user.cell}`, `phone number`)}>
-              <i className="fas fa-phone" />
-            </span>
-            <span onMouseMove={handleHover(`${user.login.username}`, `username`)}>
-              <i className="far fa-id-badge" />
-            </span>
-          </div>
-        </div>))} */}
-    </div >
+      <div id="h3-img">
+        <img src={picture} />
+        <div>
+          <h3 id="tag" className="tag toggle">
+            {text}
+          </h3>
+        </div>
+      </div>
+      <div id="icons">
+        <span onMouseMove={handleHover(`${first} ${last}`, "name")}>
+          <i className="far fa-id-card" />
+        </span>
+        <span onMouseMove={handleHover(`${street} ${state}`, "adress")}>
+          <i className="fas fa-map-marker-alt" />
+        </span>
+        <span onMouseMove={handleHover(`${email}`, `email`)}>
+          <i className="far fa-address-card"></i>
+        </span>
+        <span onMouseMove={handleHover(`${cell}`, `phone number`)}>
+          <i className="fas fa-phone" />
+        </span>
+        <span onMouseMove={handleHover(`${username}`, `username`)}>
+          <i className="far fa-id-badge" />
+        </span>
+      </div>
+    </div>
   );
 };
 

@@ -1,0 +1,68 @@
+@import "./App.scss";
+
+#wrapper {
+    height: 70vh;
+    width: 95%;
+    box-shadow: 0 0 3px rgba(2, 2, 2, 1);
+
+}
+
+#h3-img {
+    margin: 1em;
+    height: 60%;
+    animation: fadeIn 1s;
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    h3 {
+        padding: 0;
+        margin: 2em 0;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 1em;
+
+        &.toggle {
+            animation: textAni 2s;
+        }
+
+        @keyframes textAni {
+            from {
+                transform: translateX(-100%)
+            }
+
+            to {
+                transform: translateX(0)
+            }
+        }
+    }
+
+    img {
+        margin-top: 1em;
+        border-radius: 50%;
+        z-index: 1;
+    }
+
+}
+
+#icons {
+    span {
+        margin: .9em;
+    }
+
+    i {
+        font-size: 1.5em;
+        color: darken(getColor(primary), 90%);
+        transition: color .2s ease-in-out;
+
+        &:hover {
+            color: lighten(getColor(text-color), 50%);
+        }
+    }
+}

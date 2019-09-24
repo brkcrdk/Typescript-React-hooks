@@ -7,7 +7,7 @@
 }
 
 .App-header {
-  background-color: #f5f2f4;
+  background-color: #fff2fb;
   min-height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -23,7 +23,7 @@
       -ms-flex-pack: center;
           justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: #1c171c;
+  color: #4a151a;
 }
 
 .App-link {
