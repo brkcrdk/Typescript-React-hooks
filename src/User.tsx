@@ -1,18 +1,7 @@
 import React, { useState } from "react";
 import "./userStyle.scss";
+import { Props } from "./interfaces/UserProptype";
 //Fetch data types for api request
-
-interface Props {
-  fetch: () => void;
-  first: string;
-  last: string;
-  street: string;
-  state: string;
-  email: string;
-  cell: string;
-  username: string;
-  picture: string;
-}
 
 const User: React.FC<Props> = ({
   first,
@@ -25,9 +14,6 @@ const User: React.FC<Props> = ({
   picture,
   fetch
 }: Props) => {
-  //Set state with types of defined types
-  //TODO: Dont render the props immediately
-  //TODO: first put on another state and then render it
   const [text, setText] = useState<string>(`My name is${first} ${last}`);
 
   const handleHover = (name: string, type: string) => (
@@ -35,14 +21,11 @@ const User: React.FC<Props> = ({
   ) => {
     setText(`My ${type} is ${name}`);
   };
-  const handleClick = () => {
-    fetch();
-  };
   return (
     <div id="wrapper">
       <div id="h3-img">
         <div id="image">
-          <img src={picture} onClick={handleClick} />
+          <img src={picture} onClick={fetch} />
         </div>
         <div>
           <h3 id="tag" className={`toggle tag`}>
