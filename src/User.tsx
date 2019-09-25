@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./userStyle.scss";
 import { Props } from "./interfaces/UserProptype";
-//Fetch data types for api request
 
 const User: React.FC<Props> = ({
   first,
@@ -14,23 +13,29 @@ const User: React.FC<Props> = ({
   picture,
   fetch
 }: Props) => {
-  const [text, setText] = useState<string>(`My name is${first} ${last}`);
+  const [text, setText] = useState<string>(`My name is ${first} ${last}`);
 
   const handleHover = (name: string, type: string) => (
     e: React.MouseEvent<HTMLSpanElement, MouseEvent>
   ) => {
     setText(`My ${type} is ${name}`);
   };
+  // event: React.MouseEvent<HTMLImageElement, MouseEvent>
+  const handleClick = () => {
+    fetch();
+    setTimeout(() => {
+      setText(`My name is ${first} ${last}`);
+    }, 2000);
+  };
+
   return (
     <div id="wrapper">
       <div id="h3-img">
         <div id="image">
-          <img src={picture} onClick={fetch} />
+          <img src={picture} onClick={handleClick} />
         </div>
         <div>
-          <h3 id="tag" className={`toggle tag`}>
-            {text}
-          </h3>
+          <h3>{text}</h3>
         </div>
       </div>
       <div id="icons">
